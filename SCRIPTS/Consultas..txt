@@ -1,0 +1,46 @@
+Consultas Tablas:
+SELECT * FROM Socios;
+SELECT * FROM Entrenador;
+SELECT * FROM Clases;
+SELECT * FROM Inscripcion;
+SELECT * FROM Cuota;
+SELECT * FROM RegistrosSocios;
+
+
+Vistas:
+SELECT * FROM vwClaseCadaSocio;
+SELECT * FROM vwClaseconCantInscrip;
+SELECT * FROM vwSocioCuotaImpaga;
+
+
+Procedimientos almacenados:
+EXEC paAgregarSocio 
+    @nombre = 'Lucia', 
+    @apellido = 'Martinez', 
+    @telefono = '1132497159', 
+    @mail = 'luciamartinez@gmail.com', 
+    @fechaNacimiento = '1999-10-10';
+
+EXEC paAgregarInscripcion 
+    @idSocio = 7, 
+    @idClase = 1, 
+    @fechaInscripcion = '2025-06-28';
+
+EXEC paRegistrarPago 
+    @idSocio = 7, 
+    @monto = 9500, 
+    @fechaPago = '2025-06-28', 
+    @fechaVencimiento = '2025-07-28', 
+    @estado = 'Pagada';
+
+
+Triggers:
+EXEC paAgregarSocio 
+    @nombre = 'Valentina', 
+    @apellido = 'Diaz', 
+    @telefono = '1132497160', 
+    @mail = 'valentinadiaz@gmail.com', 
+    @fechaNacimiento = '2001-09-12';
+
+DELETE FROM Socios WHERE idSocio = 7;
+
